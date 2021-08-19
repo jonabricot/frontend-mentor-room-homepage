@@ -7,8 +7,9 @@ import { HeaderLink } from '@/layout/header/HeaderLink'
 import { HeaderLinks } from '@/layout/header/HeaderLinks'
 import { HeaderBrand } from '@/layout/header/HeaderBrand'
 import { HeaderToggle } from '@/layout/header/HeaderToggle'
+import { HeaderSection, NavigationSection } from '@/layout/Section'
 
-const StyledHeader = styled('header', {
+const StyledHeader = styled('div', {
   position: 'absolute',
   top: 0,
   left: 0,
@@ -31,14 +32,18 @@ export function Header() {
     <StyledHeader>
       <HeaderToggle onClick={() => setVisibleHeader(!visibleHeader)} toggled={visibleHeader}/>
       <Box css={{ flex: 1, textAlign: 'center', '@medium': { flex: 'auto' } }}>
-        <HeaderBrand href="/">room</HeaderBrand>
+        <HeaderSection>
+          <HeaderBrand href="/">room</HeaderBrand>
+        </HeaderSection>
       </Box>
-      <HeaderLinks visible={visibleHeader} toggleable={{ '@medium': false }}>
-        <HeaderLink href="/">home</HeaderLink>
-        <HeaderLink href="/">shop</HeaderLink>
-        <HeaderLink href="/">about</HeaderLink>
-        <HeaderLink href="/">contact</HeaderLink>
-      </HeaderLinks>
+      <NavigationSection>
+        <HeaderLinks visible={visibleHeader} toggleable={{ '@medium': false }}>
+          <HeaderLink href="/">home</HeaderLink>
+          <HeaderLink href="/">shop</HeaderLink>
+          <HeaderLink href="/">about</HeaderLink>
+          <HeaderLink href="/">contact</HeaderLink>
+        </HeaderLinks>
+      </NavigationSection>
       
     </StyledHeader>
     <HeaderBackground show={visibleHeader}/>

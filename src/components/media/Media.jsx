@@ -22,5 +22,5 @@ export function getMediaPath(name) {
 }
 
 export function Media({name, ...props}) {
-  return <StyledImage src={getMediaPath(name)} {...props} />
+  return <StyledImage src={getMediaPath(name)} alt={name} {...props} />
 }

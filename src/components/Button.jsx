@@ -1,6 +1,7 @@
+import React from 'react'
 import { styled } from '/stiches.config'
 
-export const Button = styled('button', {
+export const StyledButton = styled('button', {
   border: 'none',
   cursor: 'pointer',
   transition: '$all',
@@ -18,3 +19,15 @@ export const Button = styled('button', {
     color: 'black'
   }
 })
+
+export function Button({label, children, ...props}) {
+  return <StyledButton {...props}>
+    {children}
+  </StyledButton>
+}
+
+export function ButtonIcon({action, icon, children, ...props}) {
+  return <Button aria-label={action} {...props}>
+    {children}
+  </Button>
+}
